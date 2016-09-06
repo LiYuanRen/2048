@@ -150,7 +150,7 @@ function touchHandle(event){
 			endY = event.changedTouches[0].pageY;
 			var moveX = endX - startX;
 			var moveY = endY - startY;
-			if(Math.abs(moveX) < 0.3 * deviceWidth && Math.abs(moveY) < 0.3 * deviceWidth){
+			if(Math.abs(moveX) < 0.2 * deviceWidth && Math.abs(moveY) < 0.2 * deviceWidth){
 				return;
 			}
 			//x
