@@ -4,10 +4,10 @@ var conflictedFlag = new Array();//记录数组是否已经被合并过
 var successFlag = false;
 var freePosition = new Array(); //记录方块中的空闲的格子
 
-var startX,
-	startY,
-	endX,
-	endY;
+var startX = 0,
+	startY = 0,
+	endX = 0,
+	endY = 0;
 
 $(document).ready(function() {
 	prepareForMobile();
@@ -139,18 +139,18 @@ document.addEventListener('touchend',touchHandle);
 function touchHandle(event){
 	switch(event.type){
 		case 'touchstart':
-			startX = event.touches.pageX;
-			startY = event.touches.pageY;
+			startX = event.touches[0].pageX;
+			startY = event.touches[0].pageY;
 			break;
 		case 'touchmove':
 			event.preventDefault();
 			break;
 		case 'touchend':
-			endX = event.changedTouches.pageX;
-			endY = event.changedTouches.pageY;
+			endX = event.changedTouches[0].pageX;
+			endY = event.changedTouches[0].pageY;
 			var moveX = endX - startX;
 			var moveY = endY - startY;
-			if(moveX < 0.3 * deviceWidth && moveY < 0.3 * deviceWidth){
+			if(Math.abs(moveX) < 0.3 * deviceWidth && Math.abs(moveY) < 0.3 * deviceWidth){
 				return;
 			}
 			//x
@@ -176,7 +176,7 @@ function touchHandle(event){
 		 				setTimeout('randomGenerationNumber()',210);
 		 			}
 				}
-				//updateBoardView
+				//up
 				else{
 		 			 if(moveUp()){
 		 				setTimeout('randomGenerationNumber()',210);	
