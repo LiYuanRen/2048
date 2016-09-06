@@ -122,11 +122,11 @@ function updateBoardView(){
 
 function isGameOver(){
 	if(noSpace(board) && noMove(board)){
-		alert("Fail!");
+		alert("游戏失败!再来挑战一次吧");
 		newGame();
 	}
 	if(successFlag){
-		alert("sucess!");
+		alert("恭喜你！成功通关！");
 		newGame();
 	}
 }
